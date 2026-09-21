@@ -1,0 +1,44 @@
+<book>
+  <currency code="EUR">
+    <desk id="EQD">
+      <contract id="c1">
+        <bbg type="BBG1">
+          <leg name="A" set="PARIS" typeId="va1"/>
+          <leg name="B" set="LONDON" typeId="vi1"/>
+        </bbg>
+      </contract>
+      <contract id="c3">
+        <bbg type="BBG">
+          <leg name="F" set="PARIS" typeId="va3"/>
+        </bbg>
+      </contract>
+    </desk>
+  </currency>
+  <currency code="USD">
+    <desk id="EQD">
+      <contract id="c2">
+        <bbg type="BBG1">
+          <leg name="C" set="PARIS" typeId="va2"/>
+        </bbg>
+        <bbg type="BBG2">
+          <leg name="D" set="PARIS" typeId="vi2"/>
+          <leg name="E" set="LONDON" typeId="ve2"/>
+        </bbg>
+      </contract>
+    </desk>
+    <desk id="FXO">
+      <contract id="c4">
+        <bbg type="BBG2">
+          <leg name="G" set="LONDON" typeId="va4"/>
+          <leg name="H" set="LONDON" typeId="vi4"/>
+        </bbg>
+      </contract>
+      <contract id="c5">
+        <bbg type="BBG1">
+          <leg name="I" set="PARIS" typeId="va5"/>
+          <leg name="J" set="TOKYO" typeId="vi5"/>
+        </bbg>
+      </contract>
+    </desk>
+  </currency>
+</book>

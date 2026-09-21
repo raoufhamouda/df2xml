@@ -1,0 +1,13 @@
+{
+  "root": "cartography",
+  "explode": ["name", "set", "setType", "typeID", "underlying"],
+  "options": {"indent": "    ", "sort_groups": false, "dropna": true},
+  "levels": [
+    {"name": "par_contrat", "tag": "value",
+     "attrs": {"contract": "contract", "currency": "currency"}},
+    {"name": "par_bbg", "tag": "items",
+     "attrs": {"set": "set", "setType": "setType"}},
+    {"name": "ligne", "tag": "item", "leaf": true, "self_closing": true,
+     "attrs": {"name": "name", "typeId": "typeID", "underlying": "underlying"}}
+  ]
+}

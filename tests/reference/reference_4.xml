@@ -1,0 +1,28 @@
+<book>
+    <desk>
+        <bbg type="BBG">
+            <leg contract="c3" name="F"></leg>
+        </bbg>
+        <bbg type="BBG1">
+            <leg contract="c1" name="A"></leg>
+            <leg contract="c1" name="B"></leg>
+        </bbg>
+        <bbg type="BBG1">
+            <leg contract="c2" name="C"></leg>
+        </bbg>
+        <bbg type="BBG2">
+            <leg contract="c2" name="D"></leg>
+            <leg contract="c2" name="E"></leg>
+        </bbg>
+    </desk>
+    <desk>
+        <bbg type="BBG1">
+            <leg contract="c5" name="I"></leg>
+            <leg contract="c5" name="J"></leg>
+        </bbg>
+        <bbg type="BBG2">
+            <leg contract="c4" name="G"></leg>
+            <leg contract="c4" name="H"></leg>
+        </bbg>
+    </desk>
+</book>

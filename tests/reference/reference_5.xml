@@ -1,0 +1,19 @@
+<cartography>
+    <value contract="c1" currency="EUR">
+        <items set="PARIS" setType="BBG1">
+            <item name="A &amp; B" typeId="va1"/>
+            <item name="C &lt;tag&gt;" typeId="vi1"/>
+        </items>
+        <items set="LONDON" setType="BBG1">
+            <item name="D &quot;quoted&quot;" typeId="ve1"/>
+        </items>
+    </value>
+    <value contract="c2" currency="USD">
+        <items set="PARIS" setType="BBG1">
+            <item name="E" typeId="va2"/>
+        </items>
+        <items set="LONDON" setType="BBG2">
+            <item name="G" typeId="ve2"/>
+        </items>
+    </value>
+</cartography>

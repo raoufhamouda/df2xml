@@ -1,0 +1,41 @@
+{
+  "root": "cartography",
+  "explode": [
+    "name",
+    "set",
+    "setType",
+    "typeID"
+  ],
+  "options": {
+    "indent": "    ",
+    "dropna": true,
+    "escape": true
+  },
+  "levels": [
+    {
+      "name": "value",
+      "tag": "value",
+      "attrs": {
+        "contract": "contract",
+        "currency": "currency"
+      }
+    },
+    {
+      "name": "items",
+      "tag": "items",
+      "attrs": {
+        "set": "set",
+        "setType": "setType"
+      }
+    },
+    {
+      "name": "item",
+      "tag": "item",
+      "leaf": true,
+      "attrs": {
+        "name": "name",
+        "typeId": "typeID"
+      }
+    }
+  ]
+}

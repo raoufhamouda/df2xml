@@ -1,0 +1,44 @@
+{
+  "root": "book",
+  "explode": [
+    "name",
+    "set",
+    "setType",
+    "typeID"
+  ],
+  "options": {
+    "indent": "    ",
+    "sort_groups": true
+  },
+  "levels": [
+    {
+      "name": "desk",
+      "tag": "desk",
+      "group_by": [
+        "desk"
+      ],
+      "attrs": {}
+    },
+    {
+      "name": "bbg",
+      "tag": "bbg",
+      "group_by": [
+        "setType",
+        "currency"
+      ],
+      "attrs": {
+        "type": "setType"
+      }
+    },
+    {
+      "name": "leg",
+      "tag": "leg",
+      "leaf": true,
+      "self_closing": false,
+      "attrs": {
+        "contract": "contract",
+        "name": "name"
+      }
+    }
+  ]
+}
