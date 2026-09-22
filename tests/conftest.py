@@ -100,7 +100,11 @@ def naive_tree(data, schema):
                 if all(pd.notna(row[column]) for column in schema.required_columns)]
 
     def attributes(level, row):
-        """Read one row's attribute values.
+        """Read one row's attribute values, filling the missing ones.
+
+        A value left out by `dropna` never reaches here, but one kept with
+        `dropna: false` must be rendered as `na_repr` — `str(pd.NA)` would
+        write the literal "<NA>" instead.
 
         Args:
             level: The level supplying the attribute-to-column mapping.
@@ -109,7 +113,9 @@ def naive_tree(data, schema):
         Returns:
             The XML attributes as a dict of strings.
         """
-        return {attr: str(row[column]) for attr, column in level.attrs.items()}
+        return {attr: (schema.options.na_repr if pd.isna(row[column])
+                       else str(row[column]))
+                for attr, column in level.attrs.items()}
 
     def recurse(parent, subset, depth):
         """Append one level of elements under `parent`, then descend.
@@ -186,6 +192,21 @@ def desk_data():
         "typeID": [("va1", "vi1"), ("va2", "vi2", "ve2"), ("va3",),
                    ("va4", "vi4"), ("va5", "vi5")],
     })
+
+
+@pytest.fixture
+def na_category_data():
+    """The base frame with a categorical dtype and an all-missing column.
+
+    `currency` is a `category` used as a grouping key, and `product` is a
+    `category` holding nothing but `pd.NA` — an attribute that must still be
+    written, empty, for every element.
+
+    Returns:
+        A copy of `script.data_with_na_and_category_type`, safe to mutate.
+    """
+    from script import data_with_na_and_category_type
+    return data_with_na_and_category_type.copy()
 
 
 @pytest.fixture

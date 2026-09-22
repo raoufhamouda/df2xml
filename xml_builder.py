@@ -158,7 +158,11 @@ def build_fragments(data: pd.DataFrame, schema: XmlSchema,
     for depth in range(len(schema.levels) - 2, stop - 1, -1):
         level = schema.levels[depth]
         keys = [key for lvl in schema.levels[:depth + 1] for key in lvl.keys]
-        grouped = (work.groupby(keys, sort=options.sort_groups, dropna=False)[_FRAG]
+        # observed=True is not the default on every pandas version, and a
+        # categorical key would otherwise group over the cartesian product of
+        # its categories, emitting an element per combination that never occurs.
+        grouped = (work.groupby(keys, sort=options.sort_groups, dropna=False,
+                                observed=True)[_FRAG]
                    .agg(newline.join)
                    .reset_index())
         pad = options.indent * (depth + 1)

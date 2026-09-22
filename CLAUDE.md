@@ -75,9 +75,15 @@ in the order their first row shows up in the frame, which is what reproduces
 `output.xml`; `groupby(sort=False)` is load-bearing, not an optimisation.
 
 `dropna` removes exploded rows missing any attribute value, and a container
-left with no children disappears with them. With `dropna: false` the gaps are
-filled with `na_repr` — needed because a `StringDtype` NA propagates through
-every concatenation and reaches `join` as an `NAType`.
+left with no children disappears with them. Turn it off to publish an empty
+attribute rather than drop its row; the gaps are then filled with `na_repr` —
+needed because a `StringDtype` NA propagates through every concatenation and
+reaches `join` as an `NAType`.
+
+The groupby passes `observed=True` explicitly. It is not the default on every
+pandas version, and a **categorical** grouping key would otherwise be grouped
+over the cartesian product of its categories, emitting an element per
+combination that never occurs in the data.
 
 ## Tests
 
@@ -88,7 +94,9 @@ every concatenation and reaches `join` as an `NAType`.
 `tests/config/cartography_<n>.json` + `tests/reference/reference_<n>.xml` +
 `tests/test_case_<n>_<slug>.py`, one use case per file. Cases cover: the base
 cartography, five-level branching, a flat single-line document, grouping keys
-dissociated from attributes, and escaping with missing values.
+dissociated from attributes, escaping with missing values, level names that
+differ from the tags they emit, and a categorical key next to an all-missing
+attribute.
 
 **A reference file is never validated by the engine alone.** `conftest.py`
 holds `naive_tree()`, a second implementation written with explicit loops and

@@ -1,12 +1,21 @@
-"""Source data for the base cartography use case.
+"""Source data for the cartography use cases.
 
-The frame is *wide*: one row per contract, with `name`, `set`, `setType`,
+Both frames are *wide*: one row per contract, with `name`, `set`, `setType`,
 `typeID` and `underlying` holding parallel tuples. Position *i* of each
 describes one leaf element, so the tuples of a given row must have the same
 length.
 
 Attributes:
-    data: Four contracts, sixteen items, matching `output.xml`.
+    data: Four contracts, sixteen items, matching `output.xml`. The base use
+        case, rendered through `cartography.json`.
+    data_with_na_and_category_type: The same four contracts with two dtypes
+        that need their own handling, rendered through
+        `tests/config/cartography_7.json` into `reference_7.xml`. `currency`
+        is a `category` used as a grouping key, which the engine must group
+        with `observed=True` so that the categories are not combined into
+        elements the data never holds. `product` is a `category` holding
+        nothing but `pd.NA`: it exists to be published as an empty attribute,
+        so that case turns `dropna` off and leans on `na_repr` instead.
 """
 
 import pandas as pd
@@ -66,5 +75,3 @@ data_with_na_and_category_type = pd.DataFrame(
 
 data_with_na_and_category_type['currency'] = data_with_na_and_category_type['currency'].astype('category')
 data_with_na_and_category_type['product'] = data_with_na_and_category_type['product'].astype('category')
-
-print(data_with_na_and_category_type.dtypes)

@@ -1,0 +1,19 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Virtual environments — this project uses ~/.venvs/data, see CLAUDE.md
+.venv/
+venv/
+env/
+
+# PyCharm: machine-local settings (interpreter path, window layout)
+.idea/
+
+# Build output of build_cartography.py; reference_1.xml is what the tests pin
+generated.xml

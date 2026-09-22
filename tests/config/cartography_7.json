@@ -1,0 +1,46 @@
+{
+  "root": "cartography",
+  "explode": [
+    "name",
+    "set",
+    "setType",
+    "typeID",
+    "underlying"
+  ],
+  "options": {
+    "indent": "    ",
+    "sort_groups": false,
+    "dropna": false,
+    "na_repr": ""
+  },
+  "levels": [
+    {
+      "name": "value",
+      "tag": "value",
+      "attrs": {
+        "contract": "contract",
+        "currency": "currency",
+        "product": "product"
+      }
+    },
+    {
+      "name": "items",
+      "tag": "items",
+      "attrs": {
+        "set": "set",
+        "setType": "setType"
+      }
+    },
+    {
+      "name": "item",
+      "tag": "item",
+      "leaf": true,
+      "self_closing": true,
+      "attrs": {
+        "name": "name",
+        "typeId": "typeID",
+        "underlying": "underlying"
+      }
+    }
+  ]
+}
